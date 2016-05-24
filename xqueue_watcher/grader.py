@@ -119,6 +119,7 @@ class Grader(object):
             body = json.loads(body)
             student_response = body['student_response']
             payload = body['grader_payload']
+            files = json.loads(files)
             try:
                 grader_config = json.loads(payload)
             except ValueError as err:

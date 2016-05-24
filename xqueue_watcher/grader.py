@@ -106,7 +106,7 @@ class Grader(object):
         else:
             return self.process_item(content)
 
-    def grade(self, grader_path, grader_config, student_response):
+    def grade(self, grader_path, grader_config, student_response, files):
         raise NotImplementedError("no grader defined")
 
     def process_item(self, content, queue=None):
@@ -133,7 +133,7 @@ class Grader(object):
             relative_grader_path = grader_config['grader']
             grader_path = (self.grader_root / relative_grader_path).abspath()
             start = time.time()
-            results = self.grade(grader_path, grader_config, student_response)
+            results = self.grade(grader_path, grader_config, student_response, files)
 
             statsd.histogram('xqueuewatcher.grading-time', time.time() - start)
 

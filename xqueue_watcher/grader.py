@@ -135,7 +135,7 @@ class Grader(object):
             relative_grader_path = grader_config['grader']
             grader_path = (self.grader_root / relative_grader_path).abspath()
             start = time.time()
-            results = self.grade(grader_path, grader_config, student_response, files)
+            results = self.grade(grader_path, grader_config, student_response, files, student_info)
 
             statsd.histogram('xqueuewatcher.grading-time', time.time() - start)
 

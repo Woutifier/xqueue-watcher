@@ -106,7 +106,7 @@ class Grader(object):
         else:
             return self.process_item(content)
 
-    def grade(self, grader_path, grader_config, student_response, files):
+    def grade(self, grader_path, grader_config, student_response, files, student_info):
         raise NotImplementedError("no grader defined")
 
     def process_item(self, content, queue=None):
@@ -120,6 +120,7 @@ class Grader(object):
             student_response = body['student_response']
             payload = body['grader_payload']
             files = json.loads(files)
+            student_info = json.loads(body['student_info'])
             try:
                 grader_config = json.loads(payload)
             except ValueError as err:

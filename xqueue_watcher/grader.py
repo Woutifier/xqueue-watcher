@@ -57,7 +57,7 @@ class Grader(object):
 
     results_correct_template = u"""
   <div class="result-output result-correct">
-    <h4>{short-description}</h4>
+    <h4>{short-description} - Pass</h4>
     <pre>{long-description}</pre>
     <dl>
     <dt>Output:</dt>
@@ -70,7 +70,7 @@ class Grader(object):
 
     results_incorrect_template = u"""
   <div class="result-output result-incorrect">
-    <h4>{short-description}</h4>
+    <h4>{short-description} - Fail</h4>
     <pre>{long-description}</pre>
     <dl>
     <dt>Your output:</dt>
